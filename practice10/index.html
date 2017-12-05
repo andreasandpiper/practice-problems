@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <script>
+        function permutations(str){
+            var result = []
+            for(var letterIndex = 0 ; letterIndex < str.length; letterIndex++){
+                var combo = str[letterIndex] + "";
+                for (var getCombo = 0 ; getCombo < str.length; getCombo++){
+                    if(str[getCombo] != str[letterIndex]){
+                        combo += str[getCombo];
+                    }
+                }
+                result.push(combo);
+            }
+            console.log(result);
+            return result;
+        }
+
+        permutations('abc')
+    </script>
+</head>
+<body>
+
+</body>
+</html>

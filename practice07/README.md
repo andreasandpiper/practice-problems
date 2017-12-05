@@ -1,6 +1,7 @@
 ## Igpay Atinlay
 
-Build a function that will translate text into "Pig Latin" Take the first consonant and move it to the end of a word and then affix "ay" to the end of that word."
+Build a function that will translate text into "Pig Latin" Take the first consonant and move it to the 
+end of a word and then affix "ay" to the end of that word."
 
 - Write a function that takes one parameter
 	- Parameter 1 - A string

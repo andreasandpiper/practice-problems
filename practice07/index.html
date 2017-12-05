@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <script>
+        //remove and save first letter to variable
+        //append to end of string and "ay"
+        function pigLatin(str){
+            str = str.split(" ");
+            for(var i=0; i<str.length ; i++){
+                var firstLetter =  str[i][0];
+                str[i] =  str[i].slice(1) + firstLetter + "ay";
+            }
+
+            return str.join(" ");
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
