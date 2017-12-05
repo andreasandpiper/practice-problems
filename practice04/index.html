@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <script>
+//        <!--PSUEDO CODE-->
+        // input: array or words
+        // output: array of words in alpahbetical order
+        // declare numOfSwitch as zero
+        // for each item in array
+        //  if word1 first letter is greater than word2 first letter
+        //        switch the two words
+        //  else if word1firstletter is equal to word2firstletter
+        //         declare greaterWord;
+        //        iterate through both words using same index
+        //        if word1 is greater than word 2
+        //        greaterWord is word1
+        //        switch word1 with word2
+        // if numOfSwitch != 0
+        //    call bubbleSort(array)
+        // else
+        //        return array
+//        declare function isFirstWordGreater, parameter 2 words
+//        for each letter in word1
+//        if asci value of letter is greater than ascii value of letter of word2
+//        return true
+//        if asci value of letter is less than ascivalue of letter of word2
+//        return false
+
+
+        function bubbleSort(array){
+            var numOfSwitches = 0;
+            for(var wordIndex = 0 ; wordIndex <array.length -1 ; wordIndex++){
+                var resultOfLetterCheck = isFirstWordGreater(array[wordIndex], array[wordIndex + 1]);
+                if(resultOfLetterCheck){
+                    var firstWord = array[wordIndex];
+                    array[wordIndex] = array[wordIndex + 1];
+                    array[wordIndex + 1] = firstWord;
+                    numOfSwitches += 1;
+                }
+            }
+            if (numOfSwitches > 0){
+                return bubbleSort(array);
+            } else {
+                return array;
+            }
+        }
+
+        function isFirstWordGreater(word1, word2){
+            for(var letterIndex=0 ; letterIndex < word1.length ; letterIndex++){
+                var word1Letter = word1[letterIndex].toLowerCase().charCodeAt(0);
+                var word2Letter = word2[letterIndex].toLowerCase().charCodeAt(0);
+                if(word1Letter > word2Letter){
+                    return true;
+                }
+                if(word1Letter < word2Letter){
+                    return false;
+                }
+            }
+        }
+
+        var names = ['kristina', 'Austin', 'andrea', 'natalie'];
+        bubbleSort(names); //expected output ['andrea', 'Austin', 'kristina, 'natalie']
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+
