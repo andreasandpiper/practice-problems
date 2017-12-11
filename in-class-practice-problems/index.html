@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+
+//        $("div").click(fun1);
+//        $("div").on('click',fun1);
+//
+//        $("body").on('click','div',fun2);
+//
+//        var element = $("<div>").text('click me too');
+//        $("body").append(element);
+//
+//        function fun1(){
+//            console.log('fun 1 called');
+//        }
+//        function fun2(){
+//            console.log('fun 2 called');
+//        }
+//
+
+        for(var i = 99 ; i > 0 ; i--){
+            var sentence = '';
+            sentence += i + ' bottle'
+            sentence += addS(i) + " of beer on the wall, " + i + " bottle" + addS(i) + " Take one down, pass is around, " + (i-1) + " bottle" + addS(i-1) + ' of beer on the wall';
+            console.log(sentence);
+        }
+
+        function addS(num){
+            if(num > 1){
+                return "s";
+            }
+            return "";
+        }
+
+    </script>
+</head>
+<body>
+<div>click me</div>
+</body>
+
+</html>

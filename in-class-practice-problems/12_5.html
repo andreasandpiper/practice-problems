@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script>
+
+//input: "Hello, there"
+//output: "hELLO THERE"
+
+        //declare function
+        //delcare empty string
+        //for each letter in string
+// check is non alphanumeric
+        // if lower case
+        //      push upper to new string
+        // else
+        //      push lower to new string
+
+        function oppositeCapitalization(str){
+            var newStr = "";
+            for(var letter=0 ; letter < str.length ; letter++){
+                if (str[letter] === str[letter].toLowerCase()){
+                    newStr += str[letter].toUpperCase()
+                } else if (str[letter] === str[letter].toUpperCase()){
+                    newStr +=  str[letter].toLowerCase();
+                }
+                else {
+                    newStr += str[letter];
+                }
+            }
+
+            return newStr;
+        }
+
+        var test1 = oppositeCapitalization("Hello there");
+        var test2 = oppositeCapitalization("I ain't here");
+
+        //input: [3,6,1,10,3,6] --> 1,3,3,6,6,10
+        //output: 3, 6
+
+        //declare function findMedian
+        //declare num of switch variable
+        //use bubble sort
+        //if length of array is even
+        //return middle 2 numbers
+        //else
+        //return middle value
+
+        function findMedian(array){
+            var numOfSwitches;
+            do{
+                numOfSwitches = 0;
+                for(var i = 0 ; i < array.length - 1; i++){
+                    if(array[i] > array[i+1]){
+                        var firstNum = array[i];
+                        array[i] = array[i+1];
+                        array[i+1] = firstNum;
+                        numOfSwitches += 1;
+                    }
+                }
+            } while (numOfSwitches > 0);
+            var middle = parseInt(array.length/ 2);
+            console.log(middle)
+            if(array.length % 2 === 0){
+                console.log(middle)
+                return array.slice(middle -1, middle+1);
+            } else {
+                return array[middle];
+            }
+        }
+
+        var testMedian1 = findMedian([3,6,1,10,3,6] );
+        var testMedian2 = findMedian([50,40,3,15,16,17,45,100,5])  // 3,5,15,16,17,40,45,50,100 output: 17
+    </script>
+</head>
+<body>
+</body>
+
+</html>

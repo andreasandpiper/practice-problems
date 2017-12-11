@@ -1,6 +1,7 @@
 ## Fitting words
 
-Build a function that takes in a string and an array of strings. The function should output an array of strings that contain the same letters as the single input string.
+Build a function that takes in a string and an array of strings. The function should output an array of 
+strings that contain the same letters as the single input string.
 
 - Write a function that takes two parameters
 	- Parameter 1 - A string

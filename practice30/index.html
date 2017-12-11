@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <script>
+        //input: start_num/array, end_num(optional)
+        //output: random element or random number from range
+
+        //declare a function
+        //  declare whether first param is array
+        //  if end_num === undefined
+        //      set end_num to length of array - 1
+        //  get random number from end_num to start_num
+        //  if array
+        //      return value at index random number
+        // else
+        //      return number
+
+        function random_range(start_num, end_num){
+            var array;
+            if(Array.isArray(start_num)){
+                array = start_num;
+                start_num = 0;
+                end_num = array.length -1;
+            }
+            var randomNumber = Math.floor(Math.random() * (end_num-start_num)) + start_num;
+            if(array) {
+                return array[randomNumber];
+            } else {
+                return randomNumber;
+            }
+        }
+
+//        random_range(2,5);
+//        random_range(1, 100);
+        random_range(['a','b','c','d','e']);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phone System</title>
+	<style type="text/css">
+		#phoneNumbers{
+			width: 75%;
+			margin: 0 auto;
+			text-align: center;
+		}
+		#phoneNumbers > button{
+			background-color: pink;
+			width: 33%;
+			height: 10vh;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+	<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+</head>
+<body>
+<div id="phoneNumbers">
+	<button>1</button><button>2</button><button>3</button>
+
+</div>
+</body>
+	<script>
+		$(document).ready(function () {
+            responsiveVoice.speak("For hours, press 1. For location, press 2. For movie times, press 3.");
+        });
+        $("#phoneNumbers>button").on('click',handleNumberPress);
+
+
+        function movie_times(){
+            var buttonPressed = $(this).text();
+
+            if(buttonPressed === "1"){
+                responsiveVoice.speak("Coco is playing at 10am, 2pm, and 6pm");
+            }
+            else if(buttonPressed === "2"){
+                responsiveVoice.speak("Justice league is playing at 10am, 2pm, 6pm");
+
+            }
+            else if(buttonPressed === "3"){
+                responsiveVoice.speak("Daddy's home is playing at 10am, 2pm, 6pm")
+
+            }
+            $("#phoneNumbers>button").off('click',movie_times);
+            $("#phoneNumbers>button").on('click', handleNumberPress);
+
+
+        }
+
+        function handleNumberPress(){
+			var buttonPressed = $(this).text();
+
+			if(buttonPressed === "1"){
+                responsiveVoice.speak("our hours are from 8am to 11pm 7 days a week");
+			}
+			else if(buttonPressed === "2"){
+                responsiveVoice.speak("our location is right here");
+
+            }
+            else if(buttonPressed === "3"){
+                $("#phoneNumbers>button").off('click',handleNumberPress);
+                $("#phoneNumbers>button").on('click',movie_times);
+                responsiveVoice.speak("to hear play times for coco, press 1. for justice league, press 2. for daddy's home, press 3");
+
+
+			}
+		}
+
+
+
+	</script>
+</html>

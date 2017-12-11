@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <script>
+
+        //input: word, array
+        //output: array of words from the array that include letters from word
+
+        //declare new_array
+        //for each word in array
+        //  for each letter in parameter word
+        //      if letter is not in word from array
+        //          return
+        //      push word to array
+        //  return newarray
+
+        function fittingWords(word, array){
+            var fitWords = [];
+            array.forEach(function(wordInArray){
+                var wordFits = true;
+                for(var i=0 ; i< word.length ; i++){
+                    if(wordInArray.indexOf(word[i]) < 0){
+                        wordFits = false;
+                    }
+                    if(!wordFits){
+                        break;
+                    }
+                    wordFits = true;
+                }
+                if(wordFits){
+                    fitWords.push(wordInArray)
+                }
+            })
+            return fitWords;
+        }
+        var myArray = ['cat','caterpillar','whale','accurate','smile','cactus','cute'];
+	    var newarray = fittingWords('cat', myArray);
+	    console.log(newarray)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <script>
+    //input: email address
+//    output: shortened email address
+
+        // declare a function
+        //declare empty string
+        //get index of symbol @
+        //get first letter of parameter
+
+
+        function shortenEmail(email){
+            if (email.indexOf('@') === -1){
+                return false;
+            }
+            var firstLetter = email[0];
+            var indexOfSymbol = email.indexOf('@');
+            var websiteAddress = email.slice(indexOfSymbol);
+            var shortEmail = firstLetter + "..." + websiteAddress;
+            return shortEmail
+
+        }
+        var test1 = shortenEmail("andrea.wayte@gmail.com");
+
+
+        //input = 'string of lowercase letters'
+        //output = 'length of longest consecutive increasing letters
+        //example input: "abcdefagecfhnryz"
+        //example output: 'cfhnryz
+
+        //declare function
+        //declare a count variable beginning at0
+        //declare variable to store current working string
+        //declare result variable
+        //for each letter in string
+        //  if asci value of first letter < ascii value of second letter
+        //      add 1 to count
+        //      append array
+        //  else
+        //      if the difference between indexs is longer than length of result
+        //          change result to new section of array
+        //      return count to 0
+        //
+        //return result
+
+        function longestABC(str) {
+            var count = 0;
+            var beginIndex = 0;
+            var result = "";
+            for(var letter = 0 ; letter < str.length - 1; letter++){
+                var letter1 = str[letter].charCodeAt(0);
+                var letter2 = str[letter+1].charCodeAt(0);
+                if(letter1 < letter2) {
+                    if(count === 0){
+                        beginIndex = letter;
+                    }
+                    count += 1;
+                    if(count > result.length - 1){
+                        result = str.slice(beginIndex,str.indexOf(str[letter+1]) + 1);
+                    }
+                } else {
+                    beginIndex = letter + 1;
+                    count = 0;
+
+                }
+            }
+            return result;
+        }
+        var result = longestABC("abcdefagecfhnryz");
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

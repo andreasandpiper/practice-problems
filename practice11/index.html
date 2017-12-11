@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <script>
+        //input: array with various data types
+        //output: an object with 2 sorted arrays:odds and even
+
+        //declare object with 2 properties: even and odd with values of empty arrays
+        //for each object in array
+        //  if odd
+//              if not in object array
+//                    add number to object.odd array
+        //  else if even
+        //          if not in object array
+        //               add number to object.even array
+//         return object
+        function evenodd(array){
+            var odds = [];
+            var evens = [];
+            for(var arrayIndex = 0 ; arrayIndex < array.length ; arrayIndex++){
+                var checkIfNumber = Number(array[arrayIndex]);
+                if (!checkIfNumber){
+                    continue;
+                }
+                if(checkIfNumber%2 === 0){
+                    if(evens.indexOf(checkIfNumber)< 0){
+                        evens.push(checkIfNumber);
+                    }
+                } else {
+                    if(odds.indexOf(checkIfNumber)< 0){
+                        odds.push(checkIfNumber);
+                    }
+                }
+            }
+            var numbers = {
+                evens: evens,
+                odds: odds
+            }
+            return numbers;
+        }
+        var array = evenodd([2,5,1,6,8,2,20,'cat',13,3]);
+        evenodd(array);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
