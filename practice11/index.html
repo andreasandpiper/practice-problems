@@ -18,26 +18,24 @@
         //               add number to object.even array
 //         return object
         function evenodd(array){
-            var odds = [];
-            var evens = [];
+            var result = {
+                "odds": [],
+                "evens": []
+            }
             for(var arrayIndex = 0 ; arrayIndex < array.length ; arrayIndex++){
                 var checkIfNumber = Number(array[arrayIndex]);
                 if (!checkIfNumber){
                     continue;
                 }
                 if(checkIfNumber%2 === 0){
-                    if(evens.indexOf(checkIfNumber)< 0){
-                        evens.push(checkIfNumber);
+                    if(result.evens.indexOf(checkIfNumber) === -1){
+                        result.evens.push(checkIfNumber);
                     }
                 } else {
-                    if(odds.indexOf(checkIfNumber)< 0){
-                        odds.push(checkIfNumber);
+                    if(result.evens.indexOf(checkIfNumber) === -1){
+                        result.odds.push(checkIfNumber);
                     }
                 }
-            }
-            var numbers = {
-                evens: evens,
-                odds: odds
             }
             return numbers;
         }
