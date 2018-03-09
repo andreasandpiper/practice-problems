@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <style>
+      .dragonDiv {
+        height: 30vmin;
+        width:30vmin;
+        float: left;
+        font-size: 4vmin;
+        color: white;
+        text-align: center;
+        background-size: cover;
+        text-shadow: 1px 2px 15px black;
+        background-position: center;
+      }
+    </style>
+    <script>
+
+    var dragons = [
+    	{ name: 'fluffykins', type: 'red', age: 4000, avatar: 'https://vignette.wikia.nocookie.net/forgottenrealms/images/e/e7/4e_red_dragon.jpg/revision/latest/scale-to-width-down/350?cb=20081013211322'},
+    	{ name: 'toothless', type: 'nightyfury', age: 15, avatar: 'https://1d4chan.org/images/thumb/0/03/Toothless_dragon1.jpg/300px-Toothless_dragon1.jpg'},
+    	{ name: 'puff', type: 'magic', age: -5, avatar: 'http://weclipart.com/gimg/B6E5699249553503/puff.gif'},
+    	{ name: 'Draco', type: 'gold', age: 12000, avatar: 'http://www.behindthevoiceactors.com/_img/chars/draco-dragonheart-6.92.jpg'}
+    ];
+    function renderDragons(dragonArray){
+      for(var dragonIndex = 0 ; dragonIndex < dragonArray.length ; dragonIndex++){
+
+        (function() {
+          var dragon = dragonArray[dragonIndex];
+          var dragonDiv = $('<div>', {
+            text: dragon.name,
+            'class': 'dragonDiv',
+            css: {
+              // 'background-image': `url(${dragonArray[dragonIndex].avatar})` //ES6
+              'background-image': `url(${dragon.avatar})`
+            },
+            on: {
+              click: function(){
+                  // console.dir(dragon);
+                  var span = $('<h2>').text(dragon.age);
+                  $(this).append(span);
+              }
+            }
+          })
+          $('body').append(dragonDiv);
+        })()
+      }
+  }
+
+  $(document).ready(renderDragons.bind(null, dragons));
+
+    function renderOneDragon(dragon){
+
+    }
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+
+</html>

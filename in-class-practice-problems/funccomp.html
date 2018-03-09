@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    // Math.floor(10*Math.random()+1)
+
+// Math.floor(addOne(multiplyByTen(Math.random())))
+
+// compose([Math.floor, addOne, multiplyByTen])(Math.random());
+
+// var randomNum1to10 = compose([Math.floor, addOne, multiplyByTen]);
+// randomNum1to10(Math.random()) // returns random integer from 1 to 10
+
+//call the last function
+//save the return result 
+//pop the array 
+//recall function
+//if array is empty, return the result
+
+
+var addOne = num => num + 1;
+var multiplyByTen = num => 10 * num;
+var addOne = num => num + 1;
+var multiplyTen = num => num * 10;
+
+function compose(array){
+    if(array.length === 1){
+        return array[0]
+    } else {
+        var newFunction = function(num){
+            var lastFunction = array.pop();
+            var result = lastFunction(num) 
+            var index = array.length - 1; 
+            while(array.length > 0){
+                var currentLastFunction = array.pop();
+                result = currentLastFunction(result);
+                index--; 
+            }
+            return result; 
+        }
+        return compose([newFunction]);
+    }
+    
+}
+
+var randomNum1to10 = compose([Math.floor, addOne, multiplyByTen]);
+var result = randomNum1to10(Math.random()) // returns random integer from 1 to 10
+console.log(result)
+
+//Tims iterative approach
+
+// function compost(funcs){
+//     return input => {
+//         const opList = funcs.slice();
+//         while(opList.length >0){
+//             input = opList.pop()(input);
+
+//         }
+//         return input; 
+//     }
+// }
+
+//Tim's recursive approach
+
+// function compose(funcs){
+//     return input => {
+//         if(funcs.length === 1){
+//             return funcs[0](input); 
+//         }
+//         return compose(
+//             funcs.slice(0, funcs.length -1)
+//         )(
+//                 funcs[funcs.length -1](input)
+//         )
+//     }
+// }
+
+//Reduce/array methods approach
+// function compose(funcs){
+//     funcs = funcs.slice().reverse();
+//     return input => funcs
+//         .reduce((currInput, currFunc)=> currFunc(currInput), input)
+}
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

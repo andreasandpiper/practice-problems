@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+
+function Human(name){
+	this.name = name;
+	this.alive = true;
+	this.die = function(){
+		if(this.alive){
+			console.log(this.name + ' says arrrrrgghhhhhhhhhhhhh');
+			this.alive = false;
+			return true;
+		}
+		else {
+			console.log(this.name + ": squish");
+			return false;
+		}
+
+	}
+}
+
+function Robot(name){
+	this.name = name;
+	this.humanKillCount = 0;
+
+	this.cuddleHuman = function(target){ //check if the given target is a human, if so, then activate it's die function.  add 1 to this robot's kill count
+		if(target.constructor === Human){
+			if(target.die()){
+				this.humanKillCount++;
+			}
+		} else {
+			console.error(target.name + " is not a human. Find human. Now")
+		}
+	}
+	this.communicate = function(target, message){ //if target is a robot, send the message to the robot's receiveCommunication method.  also need to send the current robot to the target robot as well
+		if(target.constructor === Robot){
+			target.receiveCommunication(this, message);
+		} else if (target.constructor === Human){
+			this.cuddleHuman(target);
+		}
+	}
+	this.receiveCommunication = function(sender, message){
+		//receive a communication from target.
+		//if the target is a robot, and the message involves "killcount" ,send a message BACK to the robot highlighting your robot's hugging efforts
+		console.log("I, " + this.name + " received a message from " + sender.name + ": \'" + message + "\'");
+	}
+
+}
+
+var bob = new Human('bob');
+var stacey = new Human('stacey');
+var gran = new Human('gran');
+
+var kristina = new Robot('KristinaZilla');
+var natalie = new Robot("Nat-a-Smash");
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

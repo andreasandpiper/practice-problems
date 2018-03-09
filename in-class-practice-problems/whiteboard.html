@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    function imageToChar(array){
+        var result = [];
+        var arrayBrightnessSection = 256 / array.length; 
+
+        for(var yAxis=0; yAxis >= 0; yAxis++ ){
+            var rowOfPixels = [];
+            for(var xAxis = 0; xAxis >= 0; xAxis++){
+                var brightness = helper(xAxis, yAxis);
+                if(brightness !== undefined){
+                    var indexInArray = Math.floor(brightness / arrayBrightnessSection); 
+                    rowOfPixels.push(array[indexInArray]);
+                } else if( !brightness && xAxis === 0 ){
+                    return result; 
+                } else {
+                    result.push(rowOfPixels);
+                    break; 
+                }
+            }
+        }
+    }
+
+
+function helper(x,y){
+    var image = [
+        [78, 0, undefined],
+        [0, 255, undefined],
+        [undefined]
+    ]
+    if(image[y][x] >= 0){
+        return image[y][x];
+    } else {
+        return undefined; 
+    } 
+}
+
+
+
+var result = imageToChar(['0', '1', '2', '3', '4', '5', '6', '7'])
+console.log(result);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
